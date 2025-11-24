@@ -5,7 +5,7 @@
 [![Github All Releases](https://img.shields.io/github/downloads/chuyuewei/Otherworld-Expedition-Launcher/total.svg)](https://github.com/chuyuewei/Otherworld-Expedition-Launcher/releases)
 [![GitHub release](https://img.shields.io/github/v/release/chuyuewei/Otherworld-Expedition-Launcher)](https://github.com/chuyuewei/Otherworld-Expedition-Launcher/releases/latest)
 
-> 基于NET6.0制作的MC启动器。
+> 基于NET10.0制作的MC启动器。
 
 ---
 

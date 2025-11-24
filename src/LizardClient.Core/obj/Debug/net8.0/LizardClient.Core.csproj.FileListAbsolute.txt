@@ -1,0 +1,13 @@
+C:\Users\chuyuewei\Desktop\LizardClient\src\LizardClient.Core\obj\Debug\net8.0\LizardClient.Core.csproj.AssemblyReference.cache
+C:\Users\chuyuewei\Desktop\LizardClient\src\LizardClient.Core\obj\Debug\net8.0\LizardClient.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\chuyuewei\Desktop\LizardClient\src\LizardClient.Core\obj\Debug\net8.0\LizardClient.Core.AssemblyInfoInputs.cache
+C:\Users\chuyuewei\Desktop\LizardClient\src\LizardClient.Core\obj\Debug\net8.0\LizardClient.Core.AssemblyInfo.cs
+C:\Users\chuyuewei\Desktop\LizardClient\src\LizardClient.Core\obj\Debug\net8.0\LizardClient.Core.csproj.CoreCompileInputs.cache
+C:\Users\chuyuewei\Desktop\LizardClient\src\LizardClient.Core\obj\Debug\net8.0\LizardClient.Core.sourcelink.json
+C:\Users\chuyuewei\Desktop\LizardClient\src\LizardClient.Core\bin\Debug\net8.0\LizardClient.Core.deps.json
+C:\Users\chuyuewei\Desktop\LizardClient\src\LizardClient.Core\bin\Debug\net8.0\LizardClient.Core.dll
+C:\Users\chuyuewei\Desktop\LizardClient\src\LizardClient.Core\bin\Debug\net8.0\LizardClient.Core.pdb
+C:\Users\chuyuewei\Desktop\LizardClient\src\LizardClient.Core\obj\Debug\net8.0\LizardClient.Core.dll
+C:\Users\chuyuewei\Desktop\LizardClient\src\LizardClient.Core\obj\Debug\net8.0\refint\LizardClient.Core.dll
+C:\Users\chuyuewei\Desktop\LizardClient\src\LizardClient.Core\obj\Debug\net8.0\LizardClient.Core.pdb
+C:\Users\chuyuewei\Desktop\LizardClient\src\LizardClient.Core\obj\Debug\net8.0\ref\LizardClient.Core.dll
