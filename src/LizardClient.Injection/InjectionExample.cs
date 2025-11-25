@@ -1,5 +1,6 @@
 using LizardClient.Core.Services;
 using LizardClient.Injection.Injectors;
+using LizardClient.Core.Models;
 using LizardClient.Injection.Memory;
 using System.Diagnostics;
 
@@ -16,7 +17,7 @@ public static class InjectionExample
     public static async Task<bool> InjectIntoMinecraftAsync(string dllPath)
     {
         var logger = new SerilogLogger();
-        
+
         try
         {
             // 1. 查找 Minecraft 进程
@@ -48,15 +49,15 @@ public static class InjectionExample
             if (success)
             {
                 logger.Info("DLL 注入成功！");
-                
+
                 // 5. （可选）使用内存管理器进行额外操作
                 var memMgr = injector.GetMemoryManager();
-                
+
                 // 示例：模式扫描查找特定代码
                 // var pattern = new byte[] { 0x48, 0x8B, 0x05 };
                 // var mask = "xxx";
                 // var address = memMgr.PatternScan(baseAddress, scanSize, pattern, mask);
-                
+
                 return true;
             }
             else
@@ -78,7 +79,7 @@ public static class InjectionExample
     public static void MemoryOperationsExample(int processId)
     {
         var logger = new SerilogLogger();
-        
+
         using var memMgr = new MemoryManager(logger, processId);
 
         // 示例地址（实际使用时需要通过模式扫描等方式获取）
@@ -100,7 +101,7 @@ public static class InjectionExample
         var pattern = new byte[] { 0x55, 0x8B, 0xEC };
         var mask = "xxx";
         var foundAddress = memMgr.PatternScan(exampleAddress, 0x100000, pattern, mask);
-        
+
         if (foundAddress != IntPtr.Zero)
         {
             logger.Info($"找到模式匹配: 0x{foundAddress:X}");

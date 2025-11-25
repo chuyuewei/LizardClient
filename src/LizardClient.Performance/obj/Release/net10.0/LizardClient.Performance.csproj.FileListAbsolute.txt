@@ -1,0 +1,16 @@
+C:\Users\chuyuewei\Desktop\LizardClient\src\LizardClient.Performance\obj\Release\net10.0\LizardClient.Performance.csproj.AssemblyReference.cache
+C:\Users\chuyuewei\Desktop\LizardClient\src\LizardClient.Performance\obj\Release\net10.0\LizardClient.Performance.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\chuyuewei\Desktop\LizardClient\src\LizardClient.Performance\obj\Release\net10.0\LizardClient.Performance.AssemblyInfoInputs.cache
+C:\Users\chuyuewei\Desktop\LizardClient\src\LizardClient.Performance\obj\Release\net10.0\LizardClient.Performance.AssemblyInfo.cs
+C:\Users\chuyuewei\Desktop\LizardClient\src\LizardClient.Performance\obj\Release\net10.0\LizardClient.Performance.csproj.CoreCompileInputs.cache
+C:\Users\chuyuewei\Desktop\LizardClient\src\LizardClient.Performance\obj\Release\net10.0\LizardClient.Performance.sourcelink.json
+C:\Users\chuyuewei\Desktop\LizardClient\src\LizardClient.Performance\bin\Release\net10.0\LizardClient.Performance.deps.json
+C:\Users\chuyuewei\Desktop\LizardClient\src\LizardClient.Performance\bin\Release\net10.0\LizardClient.Performance.dll
+C:\Users\chuyuewei\Desktop\LizardClient\src\LizardClient.Performance\bin\Release\net10.0\LizardClient.Performance.pdb
+C:\Users\chuyuewei\Desktop\LizardClient\src\LizardClient.Performance\bin\Release\net10.0\LizardClient.Core.dll
+C:\Users\chuyuewei\Desktop\LizardClient\src\LizardClient.Performance\bin\Release\net10.0\LizardClient.Core.pdb
+C:\Users\chuyuewei\Desktop\LizardClient\src\LizardClient.Performance\obj\Release\net10.0\LizardCl.0B8C19E3.Up2Date
+C:\Users\chuyuewei\Desktop\LizardClient\src\LizardClient.Performance\obj\Release\net10.0\LizardClient.Performance.dll
+C:\Users\chuyuewei\Desktop\LizardClient\src\LizardClient.Performance\obj\Release\net10.0\refint\LizardClient.Performance.dll
+C:\Users\chuyuewei\Desktop\LizardClient\src\LizardClient.Performance\obj\Release\net10.0\LizardClient.Performance.pdb
+C:\Users\chuyuewei\Desktop\LizardClient\src\LizardClient.Performance\obj\Release\net10.0\ref\LizardClient.Performance.dll

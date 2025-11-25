@@ -1,4 +1,5 @@
 using LizardClient.Core.Services;
+using LizardClient.Core.Models;
 using LizardClient.Injection.AutoUpdate;
 using LizardClient.Injection.Hooks;
 using LizardClient.Injection.Injectors;

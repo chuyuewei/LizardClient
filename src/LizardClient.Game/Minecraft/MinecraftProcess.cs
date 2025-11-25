@@ -36,7 +36,7 @@ public sealed class MinecraftProcess
             {
                 var availableJavas = await _javaDetector.DetectAllJavaInstallationsAsync();
                 javaInfo = _javaDetector.RecommendJavaForMinecraft(profile.MinecraftVersion, availableJavas);
-                
+
                 if (javaInfo == null)
                 {
                     _logger.Error("未找到合适的 Java 版本！");
@@ -125,7 +125,7 @@ public sealed class MinecraftProcess
         // 游戏参数
         args.Append($"-Djava.library.path=\"{Path.Combine(profile.GameDirectory, "natives")}\" ");
         args.Append($"-cp \"{GetClasspath(profile)}\" ");
-        
+
         // 主类
         args.Append("net.minecraft.client.main.Main ");
 
@@ -135,7 +135,7 @@ public sealed class MinecraftProcess
         args.Append($"--gameDir \"{profile.GameDirectory}\" ");
         args.Append($"--assetsDir \"{Path.Combine(profile.GameDirectory, "assets")}\" ");
         args.Append($"--assetIndex {GetAssetIndex(profile.MinecraftVersion)} ");
-        
+
         if (profile.FullScreen)
         {
             args.Append("--fullscreen ");
@@ -166,7 +166,7 @@ public sealed class MinecraftProcess
         var libraries = new List<string>();
         var librariesDir = Path.Combine(profile.GameDirectory, "libraries");
         var versionsDir = Path.Combine(profile.GameDirectory, "versions", profile.MinecraftVersion);
-        
+
         // 添加主 JAR
         var mainJar = Path.Combine(versionsDir, $"{profile.MinecraftVersion}.jar");
         if (File.Exists(mainJar))
@@ -227,6 +227,11 @@ public sealed class MinecraftProcess
     /// 游戏是否正在运行
     /// </summary>
     public bool IsRunning => _gameProcess != null && !_gameProcess.HasExited;
+
+    /// <summary>
+    /// 游戏进程 ID
+    /// </summary>
+    public int ProcessId => _gameProcess?.Id ?? 0;
 
     /// <summary>
     /// 释放资源

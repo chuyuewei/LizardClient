@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyCopyrightAttribute("Copyright © 2025")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.1.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.1.0+2e550baa980afad4d4681021833affa808f9fbb7")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.1.0+8568cb029b0764cd4a1566ead8f7f288bc587228")]
 [assembly: System.Reflection.AssemblyProductAttribute("LizardClient.Launcher")]
 [assembly: System.Reflection.AssemblyTitleAttribute("LizardClient.Launcher")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.1.0.0")]

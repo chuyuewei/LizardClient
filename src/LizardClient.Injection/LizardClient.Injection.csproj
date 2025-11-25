@@ -2,6 +2,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\LizardClient.Core\LizardClient.Core.csproj" />
+    <ProjectReference Include="..\LizardClient.ModSystem\LizardClient.ModSystem.csproj" />
   </ItemGroup>
 
   <PropertyGroup>

@@ -11,12 +11,12 @@ using System;
 using System.Reflection;
 
 [assembly: System.Reflection.AssemblyCompanyAttribute("chuyuewei")]
-[assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
+[assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyCopyrightAttribute("Copyright © 2025")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.1.0.0")]
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.1.0+8568cb029b0764cd4a1566ead8f7f288bc587228")]
-[assembly: System.Reflection.AssemblyProductAttribute("LizardClient.Injection")]
-[assembly: System.Reflection.AssemblyTitleAttribute("LizardClient.Injection")]
+[assembly: System.Reflection.AssemblyProductAttribute("LizardClient.Performance")]
+[assembly: System.Reflection.AssemblyTitleAttribute("LizardClient.Performance")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.1.0.0")]
 
 // 由 MSBuild WriteCodeFragment 类生成。

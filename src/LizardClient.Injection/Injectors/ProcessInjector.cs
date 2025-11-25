@@ -1,31 +1,11 @@
 using LizardClient.Core.Interfaces;
+using LizardClient.Core.Models;
 using LizardClient.Injection.Native;
 using LizardClient.Injection.Memory;
 using System.Runtime.InteropServices;
 using System.Text;
 
 namespace LizardClient.Injection.Injectors;
-
-/// <summary>
-/// 注入方法类型
-/// </summary>
-public enum InjectionMethod
-{
-    /// <summary>
-    /// 标准 DLL 注入 (CreateRemoteThread + LoadLibrary)
-    /// </summary>
-    StandardDll,
-
-    /// <summary>
-    /// Manual Mapping (更隐蔽)
-    /// </summary>
-    ManualMap,
-
-    /// <summary>
-    /// Shellcode 注入
-    /// </summary>
-    Shellcode
-}
 
 /// <summary>
 /// 进程注入器
@@ -96,7 +76,7 @@ public sealed class ProcessInjector : IDisposable
             // 2. 在目标进程中分配内存
             var pathBytes = Encoding.ASCII.GetBytes(dllPath);
             var allocatedMemory = _memoryManager.AllocateMemory((uint)(pathBytes.Length + 1));
-            
+
             if (allocatedMemory == IntPtr.Zero)
             {
                 _logger.Error("内存分配失败");
@@ -133,7 +113,7 @@ public sealed class ProcessInjector : IDisposable
 
             // 5. 等待线程完成
             var waitResult = NativeMethods.WaitForSingleObject(threadHandle, 5000);
-            
+
             if (waitResult == WinApiConstants.WAIT_TIMEOUT)
             {
                 _logger.Warning("等待线程超时");
@@ -141,7 +121,7 @@ public sealed class ProcessInjector : IDisposable
 
             // 6. 获取线程退出代码（即 LoadLibrary 的返回值，是模块句柄）
             NativeMethods.GetExitCodeThread(threadHandle, out var exitCode);
-            
+
             if (exitCode == 0)
             {
                 _logger.Error("LoadLibrary 返回 NULL，DLL 加载失败");
@@ -172,7 +152,7 @@ public sealed class ProcessInjector : IDisposable
     private bool InjectDllManualMap(string dllPath)
     {
         _logger.Warning("Manual Map 注入尚未完全实现");
-        
+
         try
         {
             // 1. 读取 DLL 文件
@@ -201,7 +181,7 @@ public sealed class ProcessInjector : IDisposable
     public bool IsTargetBeingDebugged()
     {
         NativeMethods.CheckRemoteDebuggerPresent(_memoryManager.ProcessHandle, out var isDebugged);
-        
+
         if (isDebugged)
         {
             _logger.Warning("目标进程正在被调试");
@@ -221,7 +201,7 @@ public sealed class ProcessInjector : IDisposable
 
         _memoryManager?.Dispose();
         _logger.Info("进程注入器已释放");
-        
+
         _disposed = true;
     }
 }
