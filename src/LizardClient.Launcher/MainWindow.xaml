@@ -40,6 +40,8 @@
             <!-- 导航菜单 -->
             <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
                 <RadioButton Content="主页" Tag="{StaticResource Icon.Home}" Style="{StaticResource Style.Button.Nav}" IsChecked="True" Click="NavigateHome"/>
+                <RadioButton Content="账户" Tag="{StaticResource Icon.User}" Style="{StaticResource Style.Button.Nav}" Click="NavigateAccount"/>
+                <RadioButton Content="下载" Tag="{StaticResource Icon.Dashboard}" Style="{StaticResource Style.Button.Nav}" Click="NavigateDownload"/>
                 <RadioButton Content="模组" Tag="{StaticResource Icon.Mods}" Style="{StaticResource Style.Button.Nav}" Click="NavigateMods"/>
                 <RadioButton Content="设置" Tag="{StaticResource Icon.Settings}" Style="{StaticResource Style.Button.Nav}" Click="NavigateSettings"/>
             </StackPanel>
@@ -147,6 +149,15 @@
 
             <!-- 模组视图容器 -->
             <ContentControl x:Name="ModsContainer" Visibility="Collapsed"/>
+            
+            <!-- 设置视图容器 -->
+            <ContentControl x:Name="SettingsContainer" Visibility="Collapsed"/>
+            
+            <!-- 下载视图容器 -->
+            <ContentControl x:Name="DownloadContainer" Visibility="Collapsed"/>
+            
+            <!-- 账户视图容器 -->
+            <ContentControl x:Name="AccountContainer" Visibility="Collapsed"/>
         </Grid>
 
         <!-- 底部控制栏 -->

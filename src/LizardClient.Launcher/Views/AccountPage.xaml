@@ -1,0 +1,202 @@
+<Page x:Class="LizardClient.Launcher.Views.AccountPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      mc:Ignorable="d"
+      Background="Transparent">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- 顶部标题和添加账户区 -->
+        <Border Grid.Row="0" Background="#0D000000" BorderBrush="#1AFFFFFF" BorderThickness="0,0,0,1" Padding="30,20">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Grid.Row="0" Text="账户管理" FontSize="24" FontWeight="Bold" Foreground="White" Margin="0,0,0,20"/>
+
+                <!-- 添加账户表单 -->
+                <Grid Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBox Grid.Column="0" Text="{Binding NewAccountName, UpdateSourceTrigger=PropertyChanged}" 
+                           Padding="12,10" FontSize="14" VerticalContentAlignment="Center">
+                        <TextBox.Style>
+                            <Style TargetType="TextBox">
+                                <Style.Triggers>
+                                    <Trigger Property="Text" Value="">
+                                        <Setter Property="Background">
+                                            <Setter.Value>
+                                                <VisualBrush Stretch="None" AlignmentX="Left">
+                                                    <VisualBrush.Visual>
+                                                        <TextBlock Text="输入离线账户用户名..." Foreground="{StaticResource Brush.Text.Secondary}" Margin="12,0,0,0" VerticalAlignment="Center"/>
+                                                    </VisualBrush.Visual>
+                                                </VisualBrush>
+                                            </Setter.Value>
+                                        </Setter>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </TextBox.Style>
+                    </TextBox>
+
+                    <Button Grid.Column="1" Content="添加离线账户" Command="{Binding AddOfflineAccountCommand}" 
+                          Padding="20,10" Margin="10,0,0,0" Background="{StaticResource Brush.Primary}"/>
+                    
+                    <Button Grid.Column="2" Content="Microsoft 登录" Command="{Binding LoginMicrosoftCommand}"
+                          Padding="20,10" Margin="10,0,0,0" Background="#FF0078D4"/>
+                </Grid>
+            </Grid>
+        </Border>
+
+        <!-- 账户列表 -->
+        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
+            <ItemsControl ItemsSource="{Binding Accounts}" Margin="30,20">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Border Background="#0D000000" BorderBrush="#1AFFFFFF" BorderThickness="1" 
+                              CornerRadius="12" Padding="0" Margin="0,0,0,15">
+                            <Border.Style>
+                                <Style TargetType="Border">
+                                    <Setter Property="BorderBrush" Value="#1AFFFFFF"/>
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding IsActive}" Value="True">
+                                            <Setter Property="BorderBrush" Value="{StaticResource Brush.Primary}"/>
+                                            <Setter Property="BorderThickness" Value="2"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </Border.Style>
+
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+
+                                <!-- 皮肤头像 -->
+                                <Border Grid.Column="0" Width="80" Height="80" Margin="20" CornerRadius="8" ClipToBounds="True">
+                                    <Image Source="{Binding SkinUrl}" Stretch="UniformToFill"/>
+                                </Border>
+
+                                <!-- 账户信息 -->
+                                <StackPanel Grid.Column="1" VerticalAlignment="Center" Margin="0,20,20,20">
+                                    <!-- 用户名和状态 -->
+                                    <StackPanel Orientation="Horizontal" Margin="0,0,0,8">
+                                        <TextBlock Text="{Binding Username}" FontSize="18" FontWeight="SemiBold" 
+                                                 Foreground="White" VerticalAlignment="Center"/>
+                                        
+                                        <Border Background="#FF4CAF50" CornerRadius="4" Padding="8,4" Margin="12,0,0,0">
+                                            <Border.Style>
+                                                <Style TargetType="Border">
+                                                    <Setter Property="Visibility" Value="Collapsed"/>
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Binding IsActive}" Value="True">
+                                                            <Setter Property="Visibility" Value="Visible"/>
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </Border.Style>
+                                            <TextBlock Text="当前账户" Foreground="White" FontSize="12"/>
+                                        </Border>
+
+                                        <Border Background="#FFFF9800" CornerRadius="4" Padding="8,4" Margin="8,0,0,0">
+                                            <Border.Style>
+                                                <Style TargetType="Border">
+                                                    <Setter Property="Visibility" Value="Collapsed"/>
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Binding Type}" Value="Offline">
+                                                            <Setter Property="Visibility" Value="Visible"/>
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </Border.Style>
+                                            <TextBlock Text="离线" Foreground="White" FontSize="12"/>
+                                        </Border>
+
+                                        <Border Background="#FF2196F3" CornerRadius="4" Padding="8,4" Margin="8,0,0,0">
+                                            <Border.Style>
+                                                <Style TargetType="Border">
+                                                    <Setter Property="Visibility" Value="Collapsed"/>
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Binding Type}" Value="Microsoft">
+                                                            <Setter Property="Visibility" Value="Visible"/>
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </Border.Style>
+                                            <TextBlock Text="Microsoft" Foreground="White" FontSize="12"/>
+                                        </Border>
+                                    </StackPanel>
+
+                                    <!-- UUID -->
+                                    <TextBlock Foreground="{StaticResource Brush.Text.Secondary}" FontSize="12" Margin="0,0,0,4">
+                                        <Run Text="UUID: "/>
+                                        <Run Text="{Binding Uuid}"/>
+                                    </TextBlock>
+
+                                    <!-- 最后使用时间 -->
+                                    <TextBlock Foreground="{StaticResource Brush.Text.Secondary}" FontSize="12">
+                                        <Run Text="最后使用: "/>
+                                        <Run Text="{Binding LastUsed, StringFormat={}{0:yyyy-MM-dd HH:mm:ss}}"/>
+                                    </TextBlock>
+                                </StackPanel>
+
+                                <!-- 操作按钮 -->
+                                <StackPanel Grid.Column="2" Orientation="Horizontal" VerticalAlignment="Center" Margin="0,20,20,20">
+                                    <Button Content="设为活动" Padding="15,8" Margin="0,0,10,0"
+                                          Background="{StaticResource Brush.Primary}"
+                                          Command="{Binding DataContext.SetActiveAccountCommand, RelativeSource={RelativeSource AncestorType=Page}}"
+                                          CommandParameter="{Binding}">
+                                        <Button.Style>
+                                            <Style TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
+                                                <Setter Property="Visibility" Value="Visible"/>
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding IsActive}" Value="True">
+                                                        <Setter Property="Visibility" Value="Collapsed"/>
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </Button.Style>
+                                    </Button>
+
+                                    <Button Content="刷新" Padding="15,8" Margin="0,0,10,0"
+                                          Background="#40FFFFFF"
+                                          Command="{Binding DataContext.RefreshAccountCommand, RelativeSource={RelativeSource AncestorType=Page}}"
+                                          CommandParameter="{Binding}">
+                                        <Button.Style>
+                                            <Style TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
+                                                <Setter Property="Visibility" Value="Visible"/>
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding Type}" Value="Offline">
+                                                        <Setter Property="Visibility" Value="Collapsed"/>
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </Button.Style>
+                                    </Button>
+
+                                    <Button Content="删除" Padding="15,8" Background="#40FF0000"
+                                          Command="{Binding DataContext.RemoveAccountCommand, RelativeSource={RelativeSource AncestorType=Page}}"
+                                          CommandParameter="{Binding}"/>
+                                </StackPanel>
+                            </Grid>
+                        </Border>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </ScrollViewer>
+    </Grid>
+</Page>

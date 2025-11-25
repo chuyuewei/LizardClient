@@ -31,7 +31,8 @@
 
                 <!-- Search -->
                 <TextBox Grid.Column="0" Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged}" 
-                         Tag="搜索模组..." Style="{StaticResource Style.TextBox}" Margin="0,0,10,0"/>
+                         Padding="8" Margin="0,0,10,0" Background="#33FFFFFF" Foreground="White" BorderThickness="0" 
+                         VerticalContentAlignment="Center" FontSize="13"/>
 
                 <!-- Filter -->
                 <ComboBox Grid.Column="1" SelectedIndex="{Binding FilterIndex}" Width="120" Margin="0,0,10,0">
@@ -79,7 +80,8 @@
                                 <!-- Controls -->
                                 <StackPanel Grid.Column="2" Orientation="Horizontal" VerticalAlignment="Center">
                                     <CheckBox IsChecked="{Binding IsEnabled}" Command="{Binding ToggleEnabledCommand}" Margin="0,0,10,0"/>
-                                    <Button Content="配置" Command="{Binding ConfigureCommand}" Style="{StaticResource Style.Button.Secondary}" Padding="8,4" FontSize="12"/>
+                                    <Button Content="配置" Command="{Binding ConfigureCommand}" Padding="8,4" FontSize="12" 
+                                            Background="#33FFFFFF" Foreground="White" BorderThickness="0" Cursor="Hand"/>
                                 </StackPanel>
                             </Grid>
                         </Border>
@@ -119,7 +121,8 @@
 
                 <StackPanel Grid.Row="2" Margin="0,15,0,0">
                     <Button Content="检查更新" Command="{Binding SelectedMod.UpdateCommand}" Style="{StaticResource Style.Button.Primary}" Margin="0,0,0,10"/>
-                    <Button Content="删除模组" Command="{Binding SelectedMod.DeleteCommand}" Style="{StaticResource Style.Button.Secondary}" Background="#33FF0000" Foreground="#FF5555"/>
+                    <Button Content="删除模组" Command="{Binding SelectedMod.DeleteCommand}" 
+                            Background="#33FF0000" Foreground="#FFFF5555" BorderThickness="0" Padding="12,8" Cursor="Hand"/>
                 </StackPanel>
             </Grid>
         </Border>

@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET10_0;NETCOREAPP;WINDOWS;WINDOWS7_0;NET5_0_OR_GREATER;NET6_0_OR_GREATER;NET7_0_OR_GREATER;NET8_0_OR_GREATER;NET9_0_OR_GREATER;NET10_0_OR_GREATER;NETCOREAPP3_0_OR_GREATER;NETCOREAPP3_1_OR_GREATER;WINDOWS7_0_OR_GREATER
 C:\Users\chuyuewei\Desktop\LizardClient\src\LizardClient.Launcher\App.xaml
-31413368276
+6-1135247631
 
-8-1436559280
+16-1011971904
 22534406461
-MainWindow.xaml;Themes\ModernStyles.xaml;Views\ModsPage.xaml;
+MainWindow.xaml;Themes\ModernStyles.xaml;Views\AccountPage.xaml;Views\DownloadPage.xaml;Views\ModsPage.xaml;Views\SettingsPage.xaml;
 
 True
 
