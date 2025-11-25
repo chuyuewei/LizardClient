@@ -149,12 +149,15 @@ C:\Users\chuyuewei\Desktop\LizardClient\src\LizardClient.Launcher\bin\Debug\net1
 C:\Users\chuyuewei\Desktop\LizardClient\src\LizardClient.Launcher\bin\Debug\net10.0-windows\vi-VN\ModernWpf.resources.dll
 C:\Users\chuyuewei\Desktop\LizardClient\src\LizardClient.Launcher\bin\Debug\net10.0-windows\LizardClient.Core.dll
 C:\Users\chuyuewei\Desktop\LizardClient\src\LizardClient.Launcher\bin\Debug\net10.0-windows\LizardClient.Game.dll
+C:\Users\chuyuewei\Desktop\LizardClient\src\LizardClient.Launcher\bin\Debug\net10.0-windows\LizardClient.Injection.dll
 C:\Users\chuyuewei\Desktop\LizardClient\src\LizardClient.Launcher\bin\Debug\net10.0-windows\LizardClient.ModSystem.dll
 C:\Users\chuyuewei\Desktop\LizardClient\src\LizardClient.Launcher\bin\Debug\net10.0-windows\LizardClient.Core.pdb
 C:\Users\chuyuewei\Desktop\LizardClient\src\LizardClient.Launcher\bin\Debug\net10.0-windows\LizardClient.Game.pdb
+C:\Users\chuyuewei\Desktop\LizardClient\src\LizardClient.Launcher\bin\Debug\net10.0-windows\LizardClient.Injection.pdb
 C:\Users\chuyuewei\Desktop\LizardClient\src\LizardClient.Launcher\bin\Debug\net10.0-windows\LizardClient.ModSystem.pdb
 C:\Users\chuyuewei\Desktop\LizardClient\src\LizardClient.Launcher\obj\Debug\net10.0-windows\LizardClient.Launcher.csproj.AssemblyReference.cache
 C:\Users\chuyuewei\Desktop\LizardClient\src\LizardClient.Launcher\obj\Debug\net10.0-windows\MainWindow.baml
+C:\Users\chuyuewei\Desktop\LizardClient\src\LizardClient.Launcher\obj\Debug\net10.0-windows\Themes\ModernStyles.baml
 C:\Users\chuyuewei\Desktop\LizardClient\src\LizardClient.Launcher\obj\Debug\net10.0-windows\App.baml
 C:\Users\chuyuewei\Desktop\LizardClient\src\LizardClient.Launcher\obj\Debug\net10.0-windows\MainWindow.g.cs
 C:\Users\chuyuewei\Desktop\LizardClient\src\LizardClient.Launcher\obj\Debug\net10.0-windows\App.g.cs
@@ -171,4 +174,3 @@ C:\Users\chuyuewei\Desktop\LizardClient\src\LizardClient.Launcher\obj\Debug\net1
 C:\Users\chuyuewei\Desktop\LizardClient\src\LizardClient.Launcher\obj\Debug\net10.0-windows\LizardClient.Launcher.pdb
 C:\Users\chuyuewei\Desktop\LizardClient\src\LizardClient.Launcher\obj\Debug\net10.0-windows\LizardClient.Launcher.genruntimeconfig.cache
 C:\Users\chuyuewei\Desktop\LizardClient\src\LizardClient.Launcher\obj\Debug\net10.0-windows\ref\LizardClient.Launcher.dll
-C:\Users\chuyuewei\Desktop\LizardClient\src\LizardClient.Launcher\obj\Debug\net10.0-windows\Themes\ModernStyles.baml

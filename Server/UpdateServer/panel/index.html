@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LizardClient Update Server - Admin Panel</title>
+    <link rel="stylesheet" href="/admin/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <!-- 头部 -->
+        <header class="header">
+            <h1>🦎 LizardClient Update Server</h1>
+            <p class="subtitle">管理控制面板</p>
+        </header>
+
+        <!-- 统计卡片 -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-icon">📊</div>
+                <div class="stat-content">
+                    <div class="stat-label">总下载量</div>
+                    <div class="stat-value" id="totalDownloads">0</div>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">📁</div>
+                <div class="stat-content">
+                    <div class="stat-label">文件数量</div>
+                    <div class="stat-value" id="totalFiles">0</div>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">💾</div>
+                <div class="stat-content">
+                    <div class="stat-label">存储使用</div>
+                    <div class="stat-value" id="storageUsage">0 MB</div>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">🕒</div>
+                <div class="stat-content">
+                    <div class="stat-label">最后更新</div>
+                    <div class="stat-value" id="lastUpdate">-</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 主要内容区域 -->
+        <div class="main-grid">
+            <!-- 文件上传 -->
+            <section class="card">
+                <h2>📤 文件上传</h2>
+                <div class="upload-area" id="uploadArea">
+                    <div class="upload-icon">📦</div>
+                    <p>拖拽文件到此处或点击选择文件</p>
+                    <input type="file" id="fileInput" hidden>
+                    <button class="btn btn-primary" onclick="document.getElementById('fileInput').click()">
+                        选择文件
+                    </button>
+                </div>
+                <div id="uploadProgress" class="upload-progress" style="display: none;">
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progressFill"></div>
+                    </div>
+                    <p id="uploadStatus">上传中...</p>
+                </div>
+                <div id="uploadResult" class="upload-result" style="display: none;"></div>
+            </section>
+
+            <!-- 清单编辑器 -->
+            <section class="card">
+                <h2>✏️ 清单编辑</h2>
+                <div class="manifest-controls">
+                    <select id="channelSelect" class="select">
+                        <option value="stable">Stable (稳定版)</option>
+                        <option value="beta">Beta (测试版)</option>
+                        <option value="dev">Dev (开发版)</option>
+                    </select>
+                    <button class="btn btn-secondary" onclick="loadManifest()">加载</button>
+                    <button class="btn btn-success" onclick="saveManifest()">保存</button>
+                </div>
+                <textarea id="manifestEditor" class="manifest-editor" placeholder="清单内容将显示在这里..."></textarea>
+            </section>
+        </div>
+
+        <!-- 文件列表 -->
+        <section class="card">
+            <h2>📂 文件管理</h2>
+            <button class="btn btn-secondary" onclick="loadFiles()">🔄 刷新列表</button>
+            <div class="file-list" id="fileList">
+                <p class="loading">加载中...</p>
+            </div>
+        </section>
+
+        <!-- 活动日志 -->
+        <section class="card">
+            <h2>📋 最近活动</h2>
+            <div class="activity-log" id="activityLog">
+                <p class="loading">加载中...</p>
+            </div>
+        </section>
+    </div>
+
+    <script src="/admin/script.js"></script>
+</body>
+
+</html>

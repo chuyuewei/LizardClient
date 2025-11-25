@@ -1,19 +1,19 @@
 ﻿LizardClient.Launcher
-1.1.0.0
+
 
 winexe
 C#
 .cs
-c:\Users\chuyuewei\Desktop\LizardClient\src\LizardClient.Launcher\obj\Debug\net10.0-windows\
+C:\Users\chuyuewei\Desktop\LizardClient\src\LizardClient.Launcher\obj\Debug\net10.0-windows\
 LizardClient.Launcher
 none
 false
 TRACE;DEBUG;NET;NET10_0;NETCOREAPP;WINDOWS;WINDOWS7_0;NET5_0_OR_GREATER;NET6_0_OR_GREATER;NET7_0_OR_GREATER;NET8_0_OR_GREATER;NET9_0_OR_GREATER;NET10_0_OR_GREATER;NETCOREAPP3_0_OR_GREATER;NETCOREAPP3_1_OR_GREATER;WINDOWS7_0_OR_GREATER
-c:\Users\chuyuewei\Desktop\LizardClient\src\LizardClient.Launcher\App.xaml
+C:\Users\chuyuewei\Desktop\LizardClient\src\LizardClient.Launcher\App.xaml
 2-210104780
 
-6-834375848
-225-683232646
+4-1070971255
+22534406461
 MainWindow.xaml;Themes\ModernStyles.xaml;
 
 False

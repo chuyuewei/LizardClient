@@ -42,6 +42,31 @@ public sealed class ClientConfiguration
     public int DownloadThreads { get; set; } = 4;
 
     /// <summary>
+    /// 更新频道 (Stable, Beta, Dev)
+    /// </summary>
+    public string UpdateChannel { get; set; } = "Stable";
+
+    /// <summary>
+    /// 自动下载更新
+    /// </summary>
+    public bool AutoDownloadUpdates { get; set; } = false;
+
+    /// <summary>
+    /// 更新检查间隔（小时）
+    /// </summary>
+    public int UpdateCheckInterval { get; set; } = 24;
+
+    /// <summary>
+    /// 更新服务器 URL
+    /// </summary>
+    public string UpdateServerUrl { get; set; } = "https://updates.lizardclient.com";
+
+    /// <summary>
+    /// 最大下载速度限制 (KB/s, 0 = 无限制)
+    /// </summary>
+    public int MaxDownloadSpeed { get; set; } = 0;
+
+    /// <summary>
     /// 默认游戏配置 ID
     /// </summary>
     public Guid? DefaultProfileId { get; set; }

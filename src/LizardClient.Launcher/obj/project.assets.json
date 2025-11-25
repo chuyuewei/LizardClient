@@ -690,6 +690,20 @@
           "bin/placeholder/LizardClient.Game.dll": {}
         }
       },
+      "LizardClient.Injection/1.1.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v10.0",
+        "dependencies": {
+          "LizardClient.Core": "1.1.0",
+          "LizardClient.ModSystem": "1.1.0"
+        },
+        "compile": {
+          "bin/placeholder/LizardClient.Injection.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/LizardClient.Injection.dll": {}
+        }
+      },
       "LizardClient.ModSystem/1.1.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v10.0",
@@ -1644,6 +1658,11 @@
       "path": "../LizardClient.Game/LizardClient.Game.csproj",
       "msbuildProject": "../LizardClient.Game/LizardClient.Game.csproj"
     },
+    "LizardClient.Injection/1.1.0": {
+      "type": "project",
+      "path": "../LizardClient.Injection/LizardClient.Injection.csproj",
+      "msbuildProject": "../LizardClient.Injection/LizardClient.Injection.csproj"
+    },
     "LizardClient.ModSystem/1.1.0": {
       "type": "project",
       "path": "../LizardClient.ModSystem/LizardClient.ModSystem.csproj",
@@ -1654,6 +1673,7 @@
     "net10.0-windows7.0": [
       "LizardClient.Core >= 1.1.0",
       "LizardClient.Game >= 1.1.0",
+      "LizardClient.Injection >= 1.1.0",
       "LizardClient.ModSystem >= 1.1.0",
       "ModernWpfUI >= 0.9.6"
     ]
@@ -1671,12 +1691,14 @@
       "outputPath": "C:\\Users\\chuyuewei\\Desktop\\LizardClient\\src\\LizardClient.Launcher\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\chuyuewei\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\chuyuewei\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net10.0-windows"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -1688,6 +1710,9 @@
             },
             "C:\\Users\\chuyuewei\\Desktop\\LizardClient\\src\\LizardClient.Game\\LizardClient.Game.csproj": {
               "projectPath": "C:\\Users\\chuyuewei\\Desktop\\LizardClient\\src\\LizardClient.Game\\LizardClient.Game.csproj"
+            },
+            "C:\\Users\\chuyuewei\\Desktop\\LizardClient\\src\\LizardClient.Injection\\LizardClient.Injection.csproj": {
+              "projectPath": "C:\\Users\\chuyuewei\\Desktop\\LizardClient\\src\\LizardClient.Injection\\LizardClient.Injection.csproj"
             },
             "C:\\Users\\chuyuewei\\Desktop\\LizardClient\\src\\LizardClient.ModSystem\\LizardClient.ModSystem.csproj": {
               "projectPath": "C:\\Users\\chuyuewei\\Desktop\\LizardClient\\src\\LizardClient.ModSystem\\LizardClient.ModSystem.csproj"

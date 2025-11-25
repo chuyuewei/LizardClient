@@ -1,0 +1,36 @@
+{
+  "manifestVersion": "1.0.0",
+  "latestVersion": "1.2.0",
+  "minimumVersion": "1.0.0",
+  "channel": "stable",
+  "lastUpdated": "2025-11-25T00:00:00Z",
+  "updateServerUrl": "https://updates.lizardclient.com",
+  "updates": [
+    {
+      "version": "1.2.0",
+      "releaseDate": "2025-11-25T00:00:00Z",
+      "downloadUrl": "https://updates.lizardclient.com/downloads/LizardClient_v1.2.0.zip",
+      "fileSize": 52428800,
+      "fileHash": "a1b2c3d4e5f60121324354657687980a9b0c1d2e3f4050617182930a4b5c6d7e",
+      "isMandatory": false,
+      "isCritical": false,
+      "changelog": "## 版本 1.2.0\n\n### 新功能\n- 添加自动更新系统\n- 添加模组更新检查\n- 添加多线程下载支持\n\n### 改进\n- 优化性能\n- 修复多个 bug",
+      "minimumCompatibleVersion": "1.0.0",
+      "dependencies": [],
+      "releaseNotesUrl": "https://updates.lizardclient.com/changelog/1.2.0.md"
+    },
+    {
+      "version": "1.1.0",
+      "releaseDate": "2025-11-20T00:00:00Z",
+      "downloadUrl": "https://updates.lizardclient.com/downloads/LizardClient_v1.1.0.zip",
+      "fileSize": 51200000,
+      "fileHash": "b2c3d4e5f60718293a4b5c6d7e8f90a1b2c3d4e5f60718293a4b5c6d7e8f901",
+      "isMandatory": false,
+      "isCritical": false,
+      "changelog": "## 版本 1.1.0\n\n### 新功能\n- 添加模组系统\n- 添加注入系统",
+      "minimumCompatibleVersion": "1.0.0",
+      "dependencies": [],
+      "releaseNotesUrl": "https://updates.lizardclient.com/changelog/1.1.0.md"
+    }
+  ]
+}

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyCopyrightAttribute("Copyright © 2025")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.1.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.1.0+2e550baa980afad4d4681021833affa808f9fbb7")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.1.0+5ef832ac55fcc58e627e9bd7566c57ab03411640")]
 [assembly: System.Reflection.AssemblyProductAttribute("LizardClient.Core")]
 [assembly: System.Reflection.AssemblyTitleAttribute("LizardClient.Core")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.1.0.0")]

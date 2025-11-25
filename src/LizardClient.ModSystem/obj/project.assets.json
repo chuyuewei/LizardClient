@@ -684,12 +684,14 @@
       "outputPath": "C:\\Users\\chuyuewei\\Desktop\\LizardClient\\src\\LizardClient.ModSystem\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\chuyuewei\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\chuyuewei\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net10.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {

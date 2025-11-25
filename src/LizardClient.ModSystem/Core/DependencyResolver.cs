@@ -154,20 +154,18 @@ public sealed class DependencyResolver
     }
 
     /// <summary>
-    /// 简单的版本检查 (支持 * 和基础比较)
+    /// 增强的版本检查 (使用 SemVer)
     /// </summary>
     private bool CheckVersion(string version, string range)
     {
-        if (range == "*" || string.IsNullOrEmpty(range)) return true;
-
-        // 简化实现：仅检查是否相等或简单的 >=
-        // 实际项目应使用 SemVer 库
-        if (range.StartsWith(">="))
+        try
         {
-            var minVer = range.Substring(2);
-            return string.Compare(version, minVer) >= 0;
+            return LizardClient.Core.Utilities.VersionComparer.IsInRange(version, range);
         }
-
-        return version == range;
+        catch (Exception ex)
+        {
+            _logger.Warning($"Version check failed for {version} against {range}: {ex.Message}");
+            return false;
+        }
     }
 }

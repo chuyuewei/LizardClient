@@ -86,4 +86,51 @@ public sealed class UpdateInfo
     /// 最小兼容版本
     /// </summary>
     public string? MinimumCompatibleVersion { get; set; }
+
+    /// <summary>
+    /// 更新类型
+    /// </summary>
+    public UpdateType Type { get; set; } = UpdateType.Client;
+
+    /// <summary>
+    /// 是否为关键更新（安全补丁等）
+    /// </summary>
+    public bool IsCritical { get; set; }
+
+    /// <summary>
+    /// 依赖的更新列表
+    /// </summary>
+    public List<string> Dependencies { get; set; } = new();
+
+    /// <summary>
+    /// 发布说明 URL
+    /// </summary>
+    public string? ReleaseNotesUrl { get; set; }
 }
+
+/// <summary>
+/// 更新类型枚举
+/// </summary>
+public enum UpdateType
+{
+    /// <summary>
+    /// 客户端更新
+    /// </summary>
+    Client,
+
+    /// <summary>
+    /// 模组更新
+    /// </summary>
+    Mod,
+
+    /// <summary>
+    /// 资源更新
+    /// </summary>
+    Asset,
+
+    /// <summary>
+    /// 配置更新
+    /// </summary>
+    Configuration
+}
+
