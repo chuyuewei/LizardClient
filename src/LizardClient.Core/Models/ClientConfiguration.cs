@@ -11,9 +11,10 @@ public sealed class ClientConfiguration
     public string ConfigVersion { get; set; } = "1.0.0";
 
     /// <summary>
-    /// 客户端语言（zh-CN, en-US等）
+    /// 首选语言（zh-CN, en-US等）
     /// </summary>
-    public string Language { get; set; } = "zh-CN";
+    public string PreferredLanguage { get; set; } = "zh-CN";
+
 
     /// <summary>
     /// UI 主题（Light, Dark）

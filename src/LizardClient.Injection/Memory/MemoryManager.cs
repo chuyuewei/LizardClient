@@ -53,7 +53,7 @@ public sealed class MemoryManager : IDisposable
     public byte[] ReadBytes(IntPtr address, int size)
     {
         var buffer = new byte[size];
-        
+
         if (!NativeMethods.ReadProcessMemory(_processHandle, address, buffer, (uint)size, out var bytesRead))
         {
             var error = Marshal.GetLastWin32Error();
@@ -80,6 +80,15 @@ public sealed class MemoryManager : IDisposable
     {
         var bytes = ReadBytes(address, sizeof(long));
         return bytes.Length >= sizeof(long) ? BitConverter.ToInt64(bytes, 0) : 0;
+    }
+
+    /// <summary>
+    /// 读取 UInt64
+    /// </summary>
+    public ulong ReadUInt64(IntPtr address)
+    {
+        var bytes = ReadBytes(address, sizeof(ulong));
+        return bytes.Length >= sizeof(ulong) ? BitConverter.ToUInt64(bytes, 0) : 0;
     }
 
     /// <summary>
@@ -116,7 +125,7 @@ public sealed class MemoryManager : IDisposable
     {
         var bytes = ReadBytes(address, maxLength);
         var nullIndex = Array.IndexOf(bytes, (byte)0);
-        
+
         if (nullIndex >= 0)
         {
             bytes = bytes.Take(nullIndex).ToArray();
@@ -248,11 +257,11 @@ public sealed class MemoryManager : IDisposable
     public IntPtr PatternScan(IntPtr startAddress, int scanSize, byte[] pattern, string mask)
     {
         var data = ReadBytes(startAddress, scanSize);
-        
+
         for (int i = 0; i < data.Length - pattern.Length; i++)
         {
             bool found = true;
-            
+
             for (int j = 0; j < pattern.Length; j++)
             {
                 if (mask[j] != '?' && data[i + j] != pattern[j])

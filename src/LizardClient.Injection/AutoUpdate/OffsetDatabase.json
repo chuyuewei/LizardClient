@@ -1,0 +1,18 @@
+{
+  "1.20.1": {
+    "GameLoop": "0",
+    "RenderFrame": "0",
+    "ProcessInput": "0",
+    "SendPacket": "0",
+    "ReceivePacket": "0"
+  },
+  "1.20.2": {
+    "GameLoop": "0",
+    "RenderFrame": "0",
+    "ProcessInput": "0"
+  },
+  "_readme": {
+    "description": "Offset database for different Minecraft versions. Addresses are stored as decimal strings. Set to 0 if unknown - the auto-updater will scan for them.",
+    "format": "{ 'version': { 'function_name': 'address_as_decimal_string' } }"
+  }
+}
