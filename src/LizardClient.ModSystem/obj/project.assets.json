@@ -251,7 +251,7 @@
           }
         }
       },
-      "LizardClient.Core/1.0.0": {
+      "LizardClient.Core/1.1.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v8.0",
         "dependencies": {
@@ -659,7 +659,7 @@
         "serilog.sinks.file.nuspec"
       ]
     },
-    "LizardClient.Core/1.0.0": {
+    "LizardClient.Core/1.1.0": {
       "type": "project",
       "path": "../LizardClient.Core/LizardClient.Core.csproj",
       "msbuildProject": "../LizardClient.Core/LizardClient.Core.csproj"
@@ -667,7 +667,7 @@
   },
   "projectFileDependencyGroups": {
     "net10.0": [
-      "LizardClient.Core >= 1.0.0",
+      "LizardClient.Core >= 1.1.0",
       "Newtonsoft.Json >= 13.0.3"
     ]
   },
@@ -675,7 +675,7 @@
     "C:\\Users\\chuyuewei\\.nuget\\packages\\": {}
   },
   "project": {
-    "version": "1.0.0",
+    "version": "1.1.0",
     "restore": {
       "projectUniqueName": "C:\\Users\\chuyuewei\\Desktop\\LizardClient\\src\\LizardClient.ModSystem\\LizardClient.ModSystem.csproj",
       "projectName": "LizardClient.ModSystem",

@@ -10,13 +10,14 @@
 using System;
 using System.Reflection;
 
-[assembly: System.Reflection.AssemblyCompanyAttribute("LizardClient.Game")]
+[assembly: System.Reflection.AssemblyCompanyAttribute("chuyuewei")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
-[assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0f7eaab0939d7947df876152bc4b37cf2921e730")]
+[assembly: System.Reflection.AssemblyCopyrightAttribute("Copyright © 2025")]
+[assembly: System.Reflection.AssemblyFileVersionAttribute("1.1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.1.0+a4c6d74124e7c5199cc9d66b0e98d679a1a43066")]
 [assembly: System.Reflection.AssemblyProductAttribute("LizardClient.Game")]
 [assembly: System.Reflection.AssemblyTitleAttribute("LizardClient.Game")]
-[assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
+[assembly: System.Reflection.AssemblyVersionAttribute("1.1.0.0")]
 
 // 由 MSBuild WriteCodeFragment 类生成。
 

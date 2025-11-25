@@ -16,14 +16,19 @@ public sealed class GameProfile
     public string Name { get; set; } = string.Empty;
 
     /// <summary>
-    /// 玩家用户名
+    /// 玩家名称
     /// </summary>
-    public string PlayerName { get; set; } = string.Empty;
+    public string PlayerName { get; set; } = "Player";
 
     /// <summary>
-    /// 玩家 UUID（用于正版账户）
+    /// 玩家 UUID
     /// </summary>
-    public string? Uuid { get; set; }
+    public string PlayerUUID { get; set; } = string.Empty;
+
+    /// <summary>
+    /// 最大内存分配 (MB)
+    /// </summary>
+    public int MaxMemoryMB { get; set; } = 2048;
 
     /// <summary>
     /// Minecraft 版本
@@ -59,6 +64,15 @@ public sealed class GameProfile
     /// 是否全屏启动
     /// </summary>
     public bool IsFullscreen { get; set; }
+
+    /// <summary>
+    /// 是否全屏启动（别名属性用于兼容）
+    /// </summary>
+    public bool FullScreen
+    {
+        get => IsFullscreen;
+        set => IsFullscreen = value;
+    }
 
     /// <summary>
     /// 最后启动时间
