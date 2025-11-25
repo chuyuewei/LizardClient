@@ -10,3 +10,7 @@ C:\Users\chuyuewei\Desktop\LizardClient\src\LizardClient.Injection\obj\Debug\net
 C:\Users\chuyuewei\Desktop\LizardClient\src\LizardClient.Injection\obj\Debug\net10.0\refint\LizardClient.Injection.dll
 C:\Users\chuyuewei\Desktop\LizardClient\src\LizardClient.Injection\obj\Debug\net10.0\LizardClient.Injection.pdb
 C:\Users\chuyuewei\Desktop\LizardClient\src\LizardClient.Injection\obj\Debug\net10.0\ref\LizardClient.Injection.dll
+C:\Users\chuyuewei\Desktop\LizardClient\src\LizardClient.Injection\bin\Debug\net10.0\LizardClient.Core.dll
+C:\Users\chuyuewei\Desktop\LizardClient\src\LizardClient.Injection\bin\Debug\net10.0\LizardClient.Core.pdb
+C:\Users\chuyuewei\Desktop\LizardClient\src\LizardClient.Injection\obj\Debug\net10.0\LizardClient.Injection.csproj.AssemblyReference.cache
+C:\Users\chuyuewei\Desktop\LizardClient\src\LizardClient.Injection\obj\Debug\net10.0\LizardCl.A42A1DA4.Up2Date

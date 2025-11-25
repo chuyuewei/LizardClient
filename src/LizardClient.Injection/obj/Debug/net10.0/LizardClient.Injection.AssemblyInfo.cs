@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyCopyrightAttribute("Copyright © 2025")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.1.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.1.0+a4c6d74124e7c5199cc9d66b0e98d679a1a43066")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.1.0+2e550baa980afad4d4681021833affa808f9fbb7")]
 [assembly: System.Reflection.AssemblyProductAttribute("LizardClient.Injection")]
 [assembly: System.Reflection.AssemblyTitleAttribute("LizardClient.Injection")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.1.0.0")]

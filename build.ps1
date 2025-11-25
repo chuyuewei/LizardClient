@@ -108,6 +108,39 @@ if ($Build) {
         
         if ($LASTEXITCODE -ne 0) { throw "dotnet build 失败" }
         Write-Success "✓ 构建完成"
+        
+        # 收集构建产物到 build/Debug 或 build/Release
+        Write-Info "收集构建产物..."
+        
+        # 创建输出目录
+        New-Item -ItemType Directory -Path $OutputDir -Force | Out-Null
+        
+        # 复制所有项目的构建输出
+        $projects = @(
+            "LizardClient.Core",
+            "LizardClient.Launcher", 
+            "LizardClient.Injection",
+            "LizardClient.ModSystem",
+            "LizardClient.Game"
+        )
+        
+        foreach ($project in $projects) {
+            $projectName = $project
+            $binPath = Join-Path $ProjectRoot "src\$projectName\bin\$Configuration"
+            
+            if (Test-Path $binPath) {
+                $targetFrameworkDirs = Get-ChildItem $binPath -Directory
+                foreach ($tfDir in $targetFrameworkDirs) {
+                    $destPath = Join-Path $OutputDir $projectName
+                    New-Item -ItemType Directory -Path $destPath -Force | Out-Null
+                    
+                    Copy-Item -Path "$($tfDir.FullName)\*" -Destination $destPath -Recurse -Force
+                    Write-Host "  已复制: $projectName -> $destPath"
+                }
+            }
+        }
+        
+        Write-Success "✓ 构建产物已收集到: $OutputDir"
     }
     catch {
         Write-Error "✗ 构建失败: $_"
