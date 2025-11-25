@@ -12,6 +12,7 @@ public partial class ModsPage : UserControl, INotifyPropertyChanged
 {
     private string _searchText = "";
     private int _filterIndex = 0;
+    private int _sortIndex = 0;
     private bool _isListView = true;
     private ModViewModel? _selectedMod;
 
@@ -24,6 +25,7 @@ public partial class ModsPage : UserControl, INotifyPropertyChanged
         Mods = mods;
         FilteredMods = CollectionViewSource.GetDefaultView(Mods);
         FilteredMods.Filter = FilterMod;
+        ApplySorting();
     }
 
     public ObservableCollection<ModViewModel> Mods { get; }
@@ -57,6 +59,20 @@ public partial class ModsPage : UserControl, INotifyPropertyChanged
         }
     }
 
+    public int SortIndex
+    {
+        get => _sortIndex;
+        set
+        {
+            if (_sortIndex != value)
+            {
+                _sortIndex = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(SortIndex)));
+                ApplySorting();
+            }
+        }
+    }
+
     public bool IsListView
     {
         get => _isListView;
@@ -83,6 +99,24 @@ public partial class ModsPage : UserControl, INotifyPropertyChanged
                 _selectedMod = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(SelectedMod)));
             }
+        }
+    }
+
+    private void ApplySorting()
+    {
+        FilteredMods.SortDescriptions.Clear();
+        switch (SortIndex)
+        {
+            case 0: // Name A-Z
+                FilteredMods.SortDescriptions.Add(new System.ComponentModel.SortDescription(nameof(ModViewModel.Name), System.ComponentModel.ListSortDirection.Ascending));
+                break;
+            case 1: // Name Z-A
+                FilteredMods.SortDescriptions.Add(new System.ComponentModel.SortDescription(nameof(ModViewModel.Name), System.ComponentModel.ListSortDirection.Descending));
+                break;
+            case 2: // Status (Enabled first)
+                FilteredMods.SortDescriptions.Add(new System.ComponentModel.SortDescription(nameof(ModViewModel.IsEnabled), System.ComponentModel.ListSortDirection.Descending));
+                FilteredMods.SortDescriptions.Add(new System.ComponentModel.SortDescription(nameof(ModViewModel.Name), System.ComponentModel.ListSortDirection.Ascending));
+                break;
         }
     }
 

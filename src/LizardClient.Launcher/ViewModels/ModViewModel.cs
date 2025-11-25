@@ -1,21 +1,18 @@
 using System;
 using System.Windows.Input;
 using LizardClient.Core.Models;
-using LizardClient.ModSystem.Models;
 using LizardClient.Launcher.Mvvm;
 
 namespace LizardClient.Launcher.ViewModels;
 
 public class ModViewModel : BindableBase
 {
-    private readonly ModMetadata _metadata;
-    private ModState _state;
+    private readonly ModInfo _info;
     private bool _isEnabled;
 
-    public ModViewModel(ModMetadata metadata, ModState state, bool isEnabled)
+    public ModViewModel(ModInfo info, bool isEnabled)
     {
-        _metadata = metadata;
-        _state = state;
+        _info = info ?? throw new ArgumentNullException(nameof(info));
         _isEnabled = isEnabled;
 
         ToggleEnabledCommand = new RelayCommand(ToggleEnabled);
@@ -24,18 +21,12 @@ public class ModViewModel : BindableBase
         DeleteCommand = new RelayCommand(Delete);
     }
 
-    public string Id => _metadata.Id;
-    public string Name => _metadata.Name;
-    public string Version => _metadata.Version;
-    public string Description => _metadata.Description;
-    public string Author => _metadata.Author;
-    public string License => _metadata.License;
-
-    public ModState State
-    {
-        get => _state;
-        set => SetProperty(ref _state, value);
-    }
+    public string Id => _info.Id;
+    public string Name => _info.Name;
+    public string Version => _info.Version;
+    public string Description => _info.Description;
+    public string Author => _info.Author;
+    public string License => ""; // ModInfo doesn't have License, defaulting to empty
 
     public bool IsEnabled
     {
@@ -44,7 +35,7 @@ public class ModViewModel : BindableBase
     }
 
     // Placeholder for icon path
-    public string IconPath => "/Assets/Icons/mod_placeholder.png";
+    public string IconPath => _info.IconPath ?? "/Assets/Icons/mod_placeholder.png";
 
     public ICommand ToggleEnabledCommand { get; }
     public ICommand ConfigureCommand { get; }
@@ -72,4 +63,3 @@ public class ModViewModel : BindableBase
         // Delete mod
     }
 }
-
