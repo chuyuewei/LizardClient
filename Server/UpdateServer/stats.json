@@ -1,0 +1,31 @@
+{
+  "totalDownloads": 1,
+  "fileDownloads": {
+    "LizardClient-Release-d354d5a5a2583b55d13af4aa53d300e48f9efc34.zip": 1
+  },
+  "storageUsage": 61530375,
+  "totalFiles": 1,
+  "lastUpdate": "2025-11-25T17:51:03.6559702+08:00",
+  "recentActivities": [
+    {
+      "timestamp": "2025-11-25T17:51:22.9598959+08:00",
+      "action": "delete",
+      "details": "Deleted: LizardClient-Release-d354d5a5a2583b55d13af4aa53d300e48f9efc34.zip"
+    },
+    {
+      "timestamp": "2025-11-25T17:49:48.5288427+08:00",
+      "action": "download",
+      "details": "Downloaded: LizardClient-Release-d354d5a5a2583b55d13af4aa53d300e48f9efc34.zip"
+    },
+    {
+      "timestamp": "2025-11-25T17:48:30.2312923+08:00",
+      "action": "manifest",
+      "details": "Updated manifest: dev"
+    },
+    {
+      "timestamp": "2025-11-25T17:48:24.0270724+08:00",
+      "action": "upload",
+      "details": "Uploaded: LizardClient-Release-d354d5a5a2583b55d13af4aa53d300e48f9efc34.zip (61530375 bytes)"
+    }
+  ]
+}

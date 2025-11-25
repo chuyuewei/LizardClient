@@ -1,0 +1,23 @@
+{
+  "manifestVersion": "1.0.0",
+  "latestVersion": "1.0.0",
+  "minimumVersion": "1.0.0",
+  "channel": "stable",
+  "lastUpdated": "2025-11-25T17:47:59.8915009+08:00",
+  "updateServerUrl": "http://localhost:51000",
+  "updates": [
+    {
+      "version": "1.0.0",
+      "releaseDate": "2025-11-25T17:47:59.8915009+08:00",
+      "downloadUrl": "http://localhost:51000/downloads/LizardClient_v1.0.0.zip",
+      "fileSize": 0,
+      "fileHash": "",
+      "isMandatory": false,
+      "isCritical": false,
+      "changelog": "Initial release",
+      "minimumCompatibleVersion": "1.0.0",
+      "dependencies": [],
+      "releaseNotesUrl": "http://localhost:51000/changelog/1.0.0.md"
+    }
+  ]
+}

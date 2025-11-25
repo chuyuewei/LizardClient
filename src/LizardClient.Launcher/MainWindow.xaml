@@ -55,92 +55,98 @@
 
         <!-- 内容区域 -->
         <Grid Grid.Row="1" Margin="25,10">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="2.5*"/>
-                <ColumnDefinition Width="1*"/>
-            </Grid.ColumnDefinitions>
+            <!-- 主页视图 -->
+            <Grid x:Name="HomeView">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2.5*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
 
-            <!-- 左侧：主要内容 -->
-            <StackPanel Grid.Column="0" Margin="0,0,20,0">
-                <!-- 欢迎 Banner -->
-                <Border Height="200" CornerRadius="16" Margin="0,0,0,20">
-                    <Border.Background>
-                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                            <GradientStop Color="#FF1E293B" Offset="0"/>
-                            <GradientStop Color="#FF0F172A" Offset="1"/>
-                        </LinearGradientBrush>
-                    </Border.Background>
-                    <Grid>
-                        <Path Data="M0,100 C150,200 350,0 500,100 S800,0 1000,100" Stroke="#1AFFFFFF" StrokeThickness="2" Stretch="Fill" VerticalAlignment="Bottom" Height="100"/>
-                        <StackPanel VerticalAlignment="Center" Margin="40,0">
-                            <TextBlock Text="准备好战斗了吗？" FontSize="32" FontWeight="Bold" Foreground="White" Margin="0,0,0,10"/>
-                            <TextBlock Text="LizardClient v1.0.0 现已发布，带来极致性能体验。" FontSize="16" Foreground="{StaticResource Brush.Text.Secondary}"/>
-                        </StackPanel>
-                    </Grid>
-                </Border>
-
-                <!-- 功能网格 -->
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
-                    
-                    <Border Grid.Column="0" Style="{StaticResource Style.Card}" Margin="0,0,10,0">
-                        <StackPanel>
-                            <StackPanel Orientation="Horizontal" Margin="0,0,0,15">
-                                <Path Data="{StaticResource Icon.Mods}" Fill="{StaticResource Brush.Accent}" Width="20" Height="20" Stretch="Uniform"/>
-                                <TextBlock Text="模组系统" FontSize="16" FontWeight="Bold" Foreground="White" Margin="10,0,0,0"/>
+                <!-- 左侧：主要内容 -->
+                <StackPanel Grid.Column="0" Margin="0,0,20,0">
+                    <!-- 欢迎 Banner -->
+                    <Border Height="200" CornerRadius="16" Margin="0,0,0,20">
+                        <Border.Background>
+                            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                                <GradientStop Color="#FF1E293B" Offset="0"/>
+                                <GradientStop Color="#FF0F172A" Offset="1"/>
+                            </LinearGradientBrush>
+                        </Border.Background>
+                        <Grid>
+                            <Path Data="M0,100 C150,200 350,0 500,100 S800,0 1000,100" Stroke="#1AFFFFFF" StrokeThickness="2" Stretch="Fill" VerticalAlignment="Bottom" Height="100"/>
+                            <StackPanel VerticalAlignment="Center" Margin="40,0">
+                                <TextBlock Text="准备好战斗了吗？" FontSize="32" FontWeight="Bold" Foreground="White" Margin="0,0,0,10"/>
+                                <TextBlock Text="LizardClient v1.0.0 现已发布，带来极致性能体验。" FontSize="16" Foreground="{StaticResource Brush.Text.Secondary}"/>
                             </StackPanel>
-                            <TextBlock Text="内置 75+ 个 PvP 和实用模组，无需繁琐安装。支持 Forge, Fabric, NeoForge。" Foreground="{StaticResource Brush.Text.Secondary}" TextWrapping="Wrap"/>
-                        </StackPanel>
-                    </Border>
-
-                    <Border Grid.Column="1" Style="{StaticResource Style.Card}" Margin="10,0,0,0">
-                        <StackPanel>
-                            <StackPanel Orientation="Horizontal" Margin="0,0,0,15">
-                                <Path Data="{StaticResource Icon.Dashboard}" Fill="{StaticResource Brush.Primary}" Width="20" Height="20" Stretch="Uniform"/>
-                                <TextBlock Text="性能优化" FontSize="16" FontWeight="Bold" Foreground="White" Margin="10,0,0,0"/>
-                            </StackPanel>
-                            <TextBlock Text="独家 FPS 提升技术，内存优化算法，让游戏运行如丝般顺滑。" Foreground="{StaticResource Brush.Text.Secondary}" TextWrapping="Wrap"/>
-                        </StackPanel>
-                    </Border>
-                </Grid>
-            </StackPanel>
-
-            <!-- 右侧：侧边栏 -->
-            <StackPanel Grid.Column="1">
-                <!-- 启动配置 -->
-                <Border Style="{StaticResource Style.Card}">
-                    <StackPanel>
-                        <TextBlock Text="启动配置" FontSize="14" FontWeight="Bold" Foreground="{StaticResource Brush.Text.Muted}" Margin="0,0,0,15"/>
-                        
-                        <TextBlock Text="Minecraft 版本" FontSize="12" Foreground="{StaticResource Brush.Text.Secondary}" Margin="0,0,0,5"/>
-                        <ComboBox x:Name="VersionComboBox" SelectedIndex="0" Margin="0,0,0,15" Padding="8">
-                            <ComboBoxItem Content="1.8.9 (PvP 优化版)"/>
-                            <ComboBoxItem Content="1.12.2 (模组版)"/>
-                            <ComboBoxItem Content="1.20.4 (最新版)"/>
-                            <ComboBoxItem Content="1.21.0 (实验性)"/>
-                        </ComboBox>
-
-                        <TextBlock Text="内存分配" FontSize="12" Foreground="{StaticResource Brush.Text.Secondary}" Margin="0,0,0,5"/>
-                        <Grid Margin="0,0,0,5">
-                            <ProgressBar Value="60" Height="4" Background="#33FFFFFF" Foreground="{StaticResource Brush.Primary}" BorderThickness="0"/>
                         </Grid>
-                        <TextBlock Text="4096 MB" FontSize="12" Foreground="White" HorizontalAlignment="Right"/>
-                    </StackPanel>
-                </Border>
+                    </Border>
 
-                <!-- 快速链接 -->
-                <Border Style="{StaticResource Style.Card}">
-                    <StackPanel>
-                        <TextBlock Text="社区" FontSize="14" FontWeight="Bold" Foreground="{StaticResource Brush.Text.Muted}" Margin="0,0,0,15"/>
-                        <TextBlock Text="• 加入 Discord 服务器" Foreground="{StaticResource Brush.Text.Secondary}" Margin="0,5" Cursor="Hand"/>
-                        <TextBlock Text="• 访问官方网站" Foreground="{StaticResource Brush.Text.Secondary}" Margin="0,5" Cursor="Hand"/>
-                        <TextBlock Text="• 提交 Bug 报告" Foreground="{StaticResource Brush.Text.Secondary}" Margin="0,5" Cursor="Hand"/>
-                    </StackPanel>
-                </Border>
-            </StackPanel>
+                    <!-- 功能网格 -->
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        
+                        <Border Grid.Column="0" Style="{StaticResource Style.Card}" Margin="0,0,10,0">
+                            <StackPanel>
+                                <StackPanel Orientation="Horizontal" Margin="0,0,0,15">
+                                    <Path Data="{StaticResource Icon.Mods}" Fill="{StaticResource Brush.Accent}" Width="20" Height="20" Stretch="Uniform"/>
+                                    <TextBlock Text="模组系统" FontSize="16" FontWeight="Bold" Foreground="White" Margin="10,0,0,0"/>
+                                </StackPanel>
+                                <TextBlock Text="内置 75+ 个 PvP 和实用模组，无需繁琐安装。支持 Forge, Fabric, NeoForge。" Foreground="{StaticResource Brush.Text.Secondary}" TextWrapping="Wrap"/>
+                            </StackPanel>
+                        </Border>
+
+                        <Border Grid.Column="1" Style="{StaticResource Style.Card}" Margin="10,0,0,0">
+                            <StackPanel>
+                                <StackPanel Orientation="Horizontal" Margin="0,0,0,15">
+                                    <Path Data="{StaticResource Icon.Dashboard}" Fill="{StaticResource Brush.Primary}" Width="20" Height="20" Stretch="Uniform"/>
+                                    <TextBlock Text="性能优化" FontSize="16" FontWeight="Bold" Foreground="White" Margin="10,0,0,0"/>
+                                </StackPanel>
+                                <TextBlock Text="独家 FPS 提升技术，内存优化算法，让游戏运行如丝般顺滑。" Foreground="{StaticResource Brush.Text.Secondary}" TextWrapping="Wrap"/>
+                            </StackPanel>
+                        </Border>
+                    </Grid>
+                </StackPanel>
+
+                <!-- 右侧：侧边栏 -->
+                <StackPanel Grid.Column="1">
+                    <!-- 启动配置 -->
+                    <Border Style="{StaticResource Style.Card}">
+                        <StackPanel>
+                            <TextBlock Text="启动配置" FontSize="14" FontWeight="Bold" Foreground="{StaticResource Brush.Text.Muted}" Margin="0,0,0,15"/>
+                            
+                            <TextBlock Text="Minecraft 版本" FontSize="12" Foreground="{StaticResource Brush.Text.Secondary}" Margin="0,0,0,5"/>
+                            <ComboBox x:Name="VersionComboBox" SelectedIndex="0" Margin="0,0,0,15" Padding="8">
+                                <ComboBoxItem Content="1.8.9 (PvP 优化版)"/>
+                                <ComboBoxItem Content="1.12.2 (模组版)"/>
+                                <ComboBoxItem Content="1.20.4 (最新版)"/>
+                                <ComboBoxItem Content="1.21.0 (实验性)"/>
+                            </ComboBox>
+
+                            <TextBlock Text="内存分配" FontSize="12" Foreground="{StaticResource Brush.Text.Secondary}" Margin="0,0,0,5"/>
+                            <Grid Margin="0,0,0,5">
+                                <ProgressBar Value="60" Height="4" Background="#33FFFFFF" Foreground="{StaticResource Brush.Primary}" BorderThickness="0"/>
+                            </Grid>
+                            <TextBlock Text="4096 MB" FontSize="12" Foreground="White" HorizontalAlignment="Right"/>
+                        </StackPanel>
+                    </Border>
+
+                    <!-- 快速链接 -->
+                    <Border Style="{StaticResource Style.Card}">
+                        <StackPanel>
+                            <TextBlock Text="社区" FontSize="14" FontWeight="Bold" Foreground="{StaticResource Brush.Text.Muted}" Margin="0,0,0,15"/>
+                            <TextBlock Text="• 加入 Discord 服务器" Foreground="{StaticResource Brush.Text.Secondary}" Margin="0,5" Cursor="Hand"/>
+                            <TextBlock Text="• 访问官方网站" Foreground="{StaticResource Brush.Text.Secondary}" Margin="0,5" Cursor="Hand"/>
+                            <TextBlock Text="• 提交 Bug 报告" Foreground="{StaticResource Brush.Text.Secondary}" Margin="0,5" Cursor="Hand"/>
+                        </StackPanel>
+                    </Border>
+                </StackPanel>
+            </Grid>
+
+            <!-- 模组视图容器 -->
+            <ContentControl x:Name="ModsContainer" Visibility="Collapsed"/>
         </Grid>
 
         <!-- 底部控制栏 -->

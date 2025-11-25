@@ -1,0 +1,127 @@
+<UserControl x:Class="LizardClient.Launcher.Views.ModsPage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:LizardClient.Launcher.Views"
+             xmlns:vm="clr-namespace:LizardClient.Launcher.ViewModels"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="300"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Mod List Area -->
+        <Grid Grid.Column="0" Margin="0,0,10,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <!-- Toolbar -->
+            <Grid Grid.Row="0" Margin="0,0,0,10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <!-- Search -->
+                <TextBox Grid.Column="0" Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged}" 
+                         Tag="搜索模组..." Style="{StaticResource Style.TextBox}" Margin="0,0,10,0"/>
+
+                <!-- Filter -->
+                <ComboBox Grid.Column="1" SelectedIndex="{Binding FilterIndex}" Width="120" Margin="0,0,10,0">
+                    <ComboBoxItem Content="全部"/>
+                    <ComboBoxItem Content="已启用"/>
+                    <ComboBoxItem Content="已禁用"/>
+                </ComboBox>
+
+                <!-- Sort -->
+                <ComboBox Grid.Column="2" SelectedIndex="{Binding SortIndex}" Width="120" Margin="0,0,10,0">
+                    <ComboBoxItem Content="名称 (A-Z)"/>
+                    <ComboBoxItem Content="名称 (Z-A)"/>
+                    <ComboBoxItem Content="状态 (启用优先)"/>
+                </ComboBox>
+
+                <!-- View Toggle (Placeholder for now, just a button) -->
+                <StackPanel Grid.Column="3" Orientation="Horizontal">
+                    <RadioButton Content="列表" IsChecked="{Binding IsListView}" Style="{StaticResource Style.Button.Nav}" Margin="0,0,5,0"/>
+                    <RadioButton Content="网格" IsChecked="{Binding IsGridView}" Style="{StaticResource Style.Button.Nav}"/>
+                </StackPanel>
+            </Grid>
+
+            <!-- Mod List -->
+            <ListBox Grid.Row="1" ItemsSource="{Binding FilteredMods}" SelectedItem="{Binding SelectedMod}" 
+                     Background="Transparent" BorderThickness="0" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Border Background="#1AFFFFFF" CornerRadius="8" Padding="10" Margin="0,0,0,5">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+
+                                <!-- Icon -->
+                                <Image Grid.Column="0" Source="{Binding IconPath}" Width="40" Height="40" Margin="0,0,10,0"/>
+
+                                <!-- Info -->
+                                <StackPanel Grid.Column="1" VerticalAlignment="Center">
+                                    <TextBlock Text="{Binding Name}" FontWeight="Bold" Foreground="White" FontSize="14"/>
+                                    <TextBlock Text="{Binding Description}" Foreground="#99FFFFFF" FontSize="12" TextTrimming="CharacterEllipsis"/>
+                                </StackPanel>
+
+                                <!-- Controls -->
+                                <StackPanel Grid.Column="2" Orientation="Horizontal" VerticalAlignment="Center">
+                                    <CheckBox IsChecked="{Binding IsEnabled}" Command="{Binding ToggleEnabledCommand}" Margin="0,0,10,0"/>
+                                    <Button Content="配置" Command="{Binding ConfigureCommand}" Style="{StaticResource Style.Button.Secondary}" Padding="8,4" FontSize="12"/>
+                                </StackPanel>
+                            </Grid>
+                        </Border>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </Grid>
+
+        <!-- Mod Details Panel -->
+        <Border Grid.Column="1" Background="#1AFFFFFF" CornerRadius="12" Padding="15">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <StackPanel Grid.Row="0">
+                    <TextBlock Text="模组详情" FontSize="18" FontWeight="Bold" Foreground="White" Margin="0,0,0,15"/>
+                </StackPanel>
+
+                <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
+                    <StackPanel>
+                        <TextBlock Text="{Binding SelectedMod.Name}" FontSize="20" FontWeight="Bold" Foreground="{StaticResource Brush.Primary}" Margin="0,0,0,5"/>
+                        <TextBlock Text="{Binding SelectedMod.Version, StringFormat='版本: {0}'}" Foreground="#99FFFFFF" Margin="0,0,0,15"/>
+                        
+                        <TextBlock Text="描述" FontWeight="Bold" Foreground="White" Margin="0,0,0,5"/>
+                        <TextBlock Text="{Binding SelectedMod.Description}" Foreground="#CCFFFFFF" TextWrapping="Wrap" Margin="0,0,0,15"/>
+
+                        <TextBlock Text="作者" FontWeight="Bold" Foreground="White" Margin="0,0,0,5"/>
+                        <TextBlock Text="{Binding SelectedMod.Author}" Foreground="#CCFFFFFF" Margin="0,0,0,15"/>
+
+                        <TextBlock Text="许可证" FontWeight="Bold" Foreground="White" Margin="0,0,0,5"/>
+                        <TextBlock Text="{Binding SelectedMod.License}" Foreground="#CCFFFFFF" Margin="0,0,0,15"/>
+                    </StackPanel>
+                </ScrollViewer>
+
+                <StackPanel Grid.Row="2" Margin="0,15,0,0">
+                    <Button Content="检查更新" Command="{Binding SelectedMod.UpdateCommand}" Style="{StaticResource Style.Button.Primary}" Margin="0,0,0,10"/>
+                    <Button Content="删除模组" Command="{Binding SelectedMod.DeleteCommand}" Style="{StaticResource Style.Button.Secondary}" Background="#33FF0000" Foreground="#FF5555"/>
+                </StackPanel>
+            </Grid>
+        </Border>
+    </Grid>
+</UserControl>
