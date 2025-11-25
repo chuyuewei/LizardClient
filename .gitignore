@@ -12,6 +12,15 @@ vendor/
 dist/
 build/
 bin/
+obj/
+Debug/
+Release/
+src\LizardClient.Core\obj
+src\LizardClient.Launcher\obj
+src\LizardClient.Game\obj
+src\LizardClient.Injection\obj
+src\LizardClient.ModSystem\obj
+src\LizardClient.Performance\obj
 *.exe
 *.dll
 *.so
@@ -24,6 +33,9 @@ coverage/
 coverage.html
 
 # IDE
+.vs/CopilotSnapshots/
+.vs/LizardClient/
+.vs/LizardClient.slnx/
 .vscode/
 .idea/
 *.swp
