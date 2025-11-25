@@ -1,0 +1,67 @@
+name: Build LizardClient
+
+on:
+  push:
+    branches: [ main, master, develop ]
+  pull_request:
+    branches: [ main, master, develop ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Build ${{ matrix.configuration }}
+    runs-on: windows-latest
+    strategy:
+      matrix:
+        configuration: [Debug, Release]
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+    
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: '10.0.x'
+    
+    - name: Cache NuGet packages
+      uses: actions/cache@v4
+      with:
+        path: ~/.nuget/packages
+        key: ${{ runner.os }}-nuget-${{ hashFiles('**/*.csproj') }}
+        restore-keys: |
+          ${{ runner.os }}-nuget-
+    
+    - name: Restore dependencies
+      run: dotnet restore LizardClient.sln
+    
+    - name: Build solution
+      run: dotnet build LizardClient.sln --configuration ${{ matrix.configuration }} --no-restore
+    
+    - name: Publish Launcher
+      if: matrix.configuration == 'Release'
+      run: |
+        dotnet publish src/LizardClient.Launcher/LizardClient.Launcher.csproj `
+          --configuration Release `
+          --output ./build/Release/publish `
+          --runtime win-x64 `
+          --self-contained false `
+          -p:PublishSingleFile=true
+    
+    - name: Upload build artifacts
+      if: matrix.configuration == 'Release'
+      uses: actions/upload-artifact@v4
+      with:
+        name: LizardClient-Release-${{ github.sha }}
+        path: build/Release/publish/
+        retention-days: 30
+    
+    - name: Upload Debug artifacts
+      if: matrix.configuration == 'Debug'
+      uses: actions/upload-artifact@v4
+      with:
+        name: LizardClient-Debug-${{ github.sha }}
+        path: build/Debug/
+        retention-days: 7

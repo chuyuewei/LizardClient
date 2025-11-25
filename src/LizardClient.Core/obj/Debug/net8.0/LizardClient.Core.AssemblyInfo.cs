@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("LizardClient.Core")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+318be37f3e010956acdbc0c725f32d221f4c8a06")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0f7eaab0939d7947df876152bc4b37cf2921e730")]
 [assembly: System.Reflection.AssemblyProductAttribute("LizardClient.Core")]
 [assembly: System.Reflection.AssemblyTitleAttribute("LizardClient.Core")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

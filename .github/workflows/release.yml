@@ -1,0 +1,64 @@
+name: Create Release
+
+on:
+  push:
+    tags:
+      - 'v*.*.*'
+  workflow_dispatch:
+
+jobs:
+  release:
+    name: Create Release Build
+    runs-on: windows-latest
+    
+    permissions:
+      contents: write
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+    
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: '10.0.x'
+    
+    - name: Cache NuGet packages
+      uses: actions/cache@v4
+      with:
+        path: ~/.nuget/packages
+        key: ${{ runner.os }}-nuget-${{ hashFiles('**/*.csproj') }}
+        restore-keys: |
+          ${{ runner.os }}-nuget-
+    
+    - name: Restore dependencies
+      run: dotnet restore LizardClient.sln
+    
+    - name: Build solution
+      run: dotnet build LizardClient.sln --configuration Release --no-restore
+    
+    - name: Publish Launcher
+      run: |
+        dotnet publish src/LizardClient.Launcher/LizardClient.Launcher.csproj `
+          --configuration Release `
+          --output ./build/Release/publish `
+          --runtime win-x64 `
+          --self-contained false `
+          -p:PublishSingleFile=true
+    
+    - name: Create Release Archive
+      run: |
+        Compress-Archive -Path ./build/Release/publish/* -DestinationPath ./LizardClient-${{ github.ref_name }}.zip
+    
+    - name: Create GitHub Release
+      uses: softprops/action-gh-release@v2
+      with:
+        files: |
+          LizardClient-${{ github.ref_name }}.zip
+        draft: false
+        prerelease: false
+        generate_release_notes: true
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
