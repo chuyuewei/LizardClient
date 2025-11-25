@@ -1,0 +1,83 @@
+name: Create Pre-release
+
+on:
+  push:
+    branches: [ develop ]
+  workflow_dispatch:
+
+jobs:
+  prerelease:
+    name: Create Pre-release Build
+    runs-on: windows-latest
+    
+    permissions:
+      contents: write
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+    
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: '10.0.x'
+    
+    - name: Get Base Version
+      id: get_version
+      shell: pwsh
+      run: |
+        $xml = [xml](Get-Content ./Directory.Build.props)
+        $versionPrefix = $xml.Project.PropertyGroup.VersionPrefix
+        echo "VERSION_PREFIX=$versionPrefix" >> $env:GITHUB_OUTPUT
+        echo "Base version: $versionPrefix"
+    
+    - name: Generate Version Number
+      id: gen_version
+      shell: pwsh
+      run: |
+        $version = "${{ steps.get_version.outputs.VERSION_PREFIX }}-dev.${{ github.run_number }}"
+        echo "VERSION=$version" >> $env:GITHUB_OUTPUT
+        echo "Generated version: $version"
+    
+    - name: Cache NuGet packages
+      uses: actions/cache@v4
+      with:
+        path: ~/.nuget/packages
+        key: ${{ runner.os }}-nuget-${{ hashFiles('**/*.csproj') }}
+        restore-keys: |
+          ${{ runner.os }}-nuget-
+    
+    - name: Restore dependencies
+      run: dotnet restore LizardClient.sln
+    
+    - name: Build solution
+      run: dotnet build LizardClient.sln --configuration Release --no-restore -p:Version=${{ steps.gen_version.outputs.VERSION }}
+    
+    - name: Publish Launcher
+      run: |
+        dotnet publish src/LizardClient.Launcher/LizardClient.Launcher.csproj `
+          --configuration Release `
+          --output ./build/Release/publish `
+          --runtime win-x64 `
+          --self-contained false `
+          -p:PublishSingleFile=true `
+          -p:Version=${{ steps.gen_version.outputs.VERSION }}
+    
+    - name: Create Release Archive
+      run: |
+        Compress-Archive -Path ./build/Release/publish/* -DestinationPath ./LizardClient-${{ steps.gen_version.outputs.VERSION }}.zip
+    
+    - name: Create GitHub Pre-release
+      uses: softprops/action-gh-release@v2
+      with:
+        tag_name: v${{ steps.gen_version.outputs.VERSION }}
+        name: v${{ steps.gen_version.outputs.VERSION }}
+        files: |
+          LizardClient-${{ steps.gen_version.outputs.VERSION }}.zip
+        draft: false
+        prerelease: true
+        generate_release_notes: true
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
