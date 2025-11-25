@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyCopyrightAttribute("Copyright © 2025")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.1.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.1.0+1fd7113514cf60eda0a2852ca498d27010a40235")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.1.0+e3582d756d254b578c06e78da834bbceff6f022b")]
 [assembly: System.Reflection.AssemblyProductAttribute("LizardClient.ModSystem")]
 [assembly: System.Reflection.AssemblyTitleAttribute("LizardClient.ModSystem")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.1.0.0")]
